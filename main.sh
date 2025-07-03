@@ -3,13 +3,13 @@ Arquivo main.sh
 #!/bin/bash
 
 # Obtenha os inputs da action
-GITHUB_TOKEN=$1
+GH_TOKEN=$1
 ISSUE_ID=$2
 COMMENT=$3
 GITHUB_REPOSITORY=$4
 
 # Inicialize o cliente do GitHub
-response=$(curl -s -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
+response=$(curl -s -X POST -H "Authorization: token ${GH_TOKEN}" \
     -H "Accept: application/vnd.github.v3+json" \
     https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_ID}/comments \
     -d "{\"body\": \"${COMMENT}\"}")
